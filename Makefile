@@ -5,7 +5,7 @@ all:
 	avr-gcc -mmcu=atmega328p main.o -o blinky
 
 .PHONY: upload
-upload:
+upload: all
 	avr-objcopy -O ihex -R .eeprom blinky blinky.hex
 	avrdude -F -V -c arduino -p ATMEGA328P -P /dev/ttyACM0 -b 115200 -U flash:w:blinky.hex
 
