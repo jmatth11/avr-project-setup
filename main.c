@@ -11,7 +11,7 @@ int main (void) {
   while(1) {
     /*Set the fifth bit of PORTB to manipulate pin 13
     **Toggle pin 13 between HIGH and LOW (on/off) */
-    PORTB ^= _BV(PORTB5);
+    PORTB ^= _BV(PB5);
 
     /*Wait 3000 ms */
     _delay_ms(MS_DELAY);

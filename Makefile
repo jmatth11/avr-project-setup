@@ -6,17 +6,17 @@ PROGRAMMER=arduino
 # the clocks frequency
 CLOCK_FREQ=16000000UL
 # memory operation to perform on target (flash operation to write the hex file to)
-MEM_OP=flash:w:blinky.hex
-# MCU=attiny85
-MCU=atmega328p
+MEM_OP=flash:w:i2c.hex
+MCU=attiny85
+# MCU=atmega328p
 # for atmega328p
-TARGET_PLATFORM=m328p
+# TARGET_PLATFORM=m328p
 # for attiny85
-# TARGET_PLATFORM=t85
+TARGET_PLATFORM=t85
 
 # Remove section when generating file
 SECTION=.eeprom
-EXE=blinky
+EXE=i2c
 
 .PHONY: all
 all:
@@ -30,4 +30,4 @@ upload: all
 
 .PHONY: clean
 clean:
-	rm *.o *.hex blinky
+	rm *.o *.hex $(EXE)
