@@ -155,3 +155,17 @@ unsigned char i2c_read_byte(bool nack) {
   transfer(STATUS_CLOCK_1_BIT);
   return data;
 }
+
+/**
+ * Write the target's address out.
+ *
+ * @param[in] address The target address.
+ * @param[in] write Flag for Write or Read bit.
+ * @return The N/ACK byte.
+ */
+unsigned char i2c_write_address(unsigned char address, bool write) {
+  unsigned char rw_flag = 1;
+  if (write) rw_flag = 0;
+  // shift address over 1 because Least sig byte is RW flag
+  return i2c_write_byte((address << 1) | rw_flag);
+}

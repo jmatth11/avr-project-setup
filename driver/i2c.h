@@ -33,10 +33,12 @@
  * Initialize I2C registers and ports.
  */
 void i2c_init();
+
 /**
  * Send start command.
  */
 void i2c_start();
+
 /**
  * Send the stop command.
  */
@@ -55,5 +57,14 @@ unsigned char i2c_write_byte(unsigned char data);
  * @return The read byte.
  */
 unsigned char i2c_read_byte(bool nack);
+
+/**
+ * Write the target's address out.
+ *
+ * @param[in] address The target address.
+ * @param[in] write Flag for Write or Read bit.
+ * @return The N/ACK byte.
+ */
+unsigned char i2c_write_address(unsigned char address, bool write);
 
 #endif
